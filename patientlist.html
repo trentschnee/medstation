@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- Define main language as english -->
+<html lang="en">
+<head>
+  <!--  Meta tags -->
+  <meta charset="UTF-8">
+  <meta author="Trent Schneweis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--  Load the bootstrap stylesheet and then on top of that load our custom stylesheet-->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/datatables.min.css" />
+    <!--  Favicon-->
+    <link rel="icon" href="favicon.ico">
+  <title>Medstation: Patient List</title>
+</head>
+<body>
+  <!--  Navbar-->
+  <nav class="navbar navbar-bg navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MedstationV2</a>
+      <!-- Button element to where when the button is clicked it will trigger the collapse css class. The data-targer is the selector to apply the collapse to -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medstationMenu" aria-controls="medstationMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--  Main navbar menu-->
+      <div class="collapse navbar-collapse" id="medstationMenu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Patient Index<span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <!--  End of navbar-->
+      <!--  Start of displaying the page title-->
+      <nav class="navbar bg-white">
+        <h5 class="navbar-brand page-title-heading">Patient List</h5>
+      </nav>
+      <!--  End of displaying the page title-->
+  <!--  Start of the main content of the document-->
+  <main role="main">
+    <!--  Start of the full-width container-->
+    <div class="container-fluid">
+      <!--  Start of the medstation-content custom div-->
+      <div class="medstation-content">
+        <!-- Start of show Patients -->
+<!--  Start of a row in our container-->
+<div class="row">
+    <!--  Start of making a column 100% of the container width -->
+  <div class="col-md-12">
+      <!--  Start of the medstation-content custom pane-->
+    <div class="medstation-pane">
+        <!--  End of he patient table responsive-->
+      <div class="table-responsive">
+        <!--  Start of making a table bordered, hoverable, and searchable-->
+        <table class="table table-bordered table-hover" id="tab_logic" data-toggle="datatables" data-plugin-options='{"searching": true}'>
+<!--  Start of making a table header-->
+          <thead>
+            <!--  Start of making the table row element have a custom background color-->
+            <tr class="medstation-bg">
+              <!--  Specifies that the header cell is for columns-->
+              <th >Full Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>MR #</th>
+              <th>Admitted</th>
+              <th>Attending Physician</th>
+            </tr>
+            <!--  End of making the table row element have a custom background color-->
+          </thead>
+          <!--  End of making a table header with a custom background-->
+          <tbody>
+              <tr>
+                <td ><a href="unscannedpatient.html">Roberto A Hernandez</a></td>
+                <td>72</td>
+                <td>Male</td>
+                <td>74006192</td>
+                <td>2018-04-12</td>
+                <td>Dr. Chester Hart</td>
+              </tr>
+          </tbody>
+        </table>
+        <!--  End of making a table bordered, hoverable, and searchable-->
+      </div>
+      <!--  End of the patient table responsive-->
+    </div>
+      <!--  End of the medstation-content custom pane-->
+  </div>
+  <!--  End of making a column 100% of the container width -->
+</div>
+<!--  End of a row in our container-->
+<!-- Start of show Patients -->
+
+      </div>
+      <!--  End of the medstation-content custom panel-->
+    </div>
+    <!--  End of the full-width container-->
+  </main>
+  <!--  End of the main content of the document-->
+    <!-- Start of footer -->
+  <footer class="bg-white bd-footer text-dark text-center mt-3">
+    <div class="container-fluid p-2">
+      <span>Created by <a href="https://www.linkedin.com/in/trentschneweis" target="_blank" rel="noopener">Trent Schneweis</a>. © 2018 MedstationV2 All Rights Reserved</span>
+    </div>
+  </footer>
+    <!-- End of footer -->
+  <!--  Load the jquery (Medstation uses a lot of JQuery)-->
+  <script src="js/jquery.min.js"></script>
+  <!--  Load the popper.js (required for bootstrap)-->
+  <script src="js/popper.min.js"></script>
+  <!--  Load the bootstrap (required for bootstrap javascript functions such as navbar collapse)-->
+  <script src="js/bootstrap.min.js"></script>
+      <!--  Load the datatables library (required for the patient table search)-->
+    <script src="js/datatables.min.js"></script>
+    <!--  Load global custom scripts for the whole page-->
+    <script src="js/custom.js"></script>
+    <!--  Load the sweetalert system for smooth looking alerts-->
+  <script src="js/sweetalert2.all.min.js"></script>
+</body>
+</html>

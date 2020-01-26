@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- Define main language as english -->
+<html lang="en">
+<head>
+  <!--  Meta tags -->
+  <meta charset="UTF-8">
+  <meta author="Trent Schneweis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--  Load the bootstrap stylesheet and then on top of that load our custom stylesheet-->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!--  Favicon-->
+  <link rel="icon" href="favicon.ico">
+  <title>Medstation: Medication Page: Nitroglycerin</title>
+</head>
+<body>
+  <!--  Navbar-->
+  <nav class="navbar navbar-bg navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MedstationV2</a>
+      <!-- Button element to where when the button is clicked it will trigger the collapse css class. The data-targer is the selector to apply the collapse to -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medstationMenu" aria-controls="medstationMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--  Main navbar menu-->
+      <div class="collapse navbar-collapse" id="medstationMenu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="patientlist.html">Patient Index<span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <!--  End of navbar-->
+  <!--  Start of displaying the page title-->
+  <nav class="navbar bg-white">
+    <h5 class="navbar-brand page-title-heading">Medication Page: Nitroglycerin</h5>
+  </nav>
+  <!--  End of displaying the page title-->
+  <!--  Start of the main content of the document-->
+  <main role="main">
+    <!--  Start of the full-width container-->
+    <div class="container-fluid">
+      <!--  Start of the medstation-content custom div-->
+      <div class="medstation-content">
+        <!--  Start of a row in our container-->
+<div class="row">
+  <!--  Start of making a column 100% of the container width -->
+  <div class="col-md-12">
+    <!--  Start of the medstation-content custom pane-->
+    <div class="medstation-pane">
+      <!--  Start of make a new panel-->
+      <div class="panel">
+        <div class="panel-body">
+          <!--  Start of make the panel responsive-->
+          <div class="responsive-table">
+              <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                <thead>
+                  <tr class="tableRow medstation-bg">
+                    <th>Nitroglycerin
+                    </th>
+                    <th>Dose Ordered
+                    </th>
+                    <th>Choose Route
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="text" class="form-control is-invalid" name="med" id="medValue" placeholder="Scan Medication" tabindex="1" autocomplete="off" onkeypress="return scanMedication(event)" />
+                      <div id="medInvalid" class="invalid-feedback">Status: not scanned</div>
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" name="dose" id="doseorder" tabindex="2" placeholder="Type Dose Ordered" autocomplete="off" required="" />
+                    </td>
+
+                    <td><select class="form-control" name="route_list" style="width:100%" id="route_list" placeholder="Choose Your Route" tabindex="3" required="" />
+
+                      <option>Choose Your Route</option>
+                      <option>PO (by mouth)</option>
+                      <option>IV (intravenous)</option>
+                      <option>SL (sublingual)</option>
+                      <option>SQ(subcutaneous)</option>
+                      <option>Topical or Patch</option>
+                      <option>IM (intramuscular)</option>
+                      <option>Per tube</option>
+                      <option>PR ( Per Rectum )</option>
+                      <option>Right eye</option>
+                      <option>Left eye</option>
+                      <option>Both eyes</option>
+                      <option>Right ear</option>
+                      <option>Left ear</option>
+                      <option>Both ears</option>
+                      <option>Nasal</option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            <button type="button" onclick="javascript:history.back()" class="btn medstation-bg">Return to Medication Administration Record</button>
+          </div>
+          <!--  End of make the panel responsive-->
+        </div>
+      </div>
+      <!--  End of make a new panel-->
+    </div>
+    <!--  End of the medstation-content custom pane-->
+  </div>
+  <!--  End of making a column 100% of the container width -->
+</div>
+<!--  End of a row in our container-->
+
+      </div>
+      <!--  End of the medstation-content custom panel-->
+    </div>
+    <!--  End of the full-width container-->
+  </main>
+  <!--  End of the main content of the document-->
+    <!-- Start of footer -->
+  <footer class="bg-white bd-footer text-dark text-center mt-3">
+    <div class="container-fluid p-2">
+      <span>Created by <a href="https://www.linkedin.com/in/trentschneweis" target="_blank" rel="noopener">Trent Schneweis</a>. © 2018 MedstationV2 All Rights Reserved</span>
+    </div>
+  </footer>
+    <!-- End of footer -->
+  <!--  Load the jquery (Medstation uses a lot of JQuery)-->
+  <script src="js/jquery.min.js"></script>
+  <!--  Load the popper.js (required for bootstrap)-->
+  <script src="js/popper.min.js"></script>
+  <!--  Load the bootstrap (required for bootstrap javascript functions such as navbar collapse)-->
+  <script src="js/bootstrap.min.js"></script>
+    <!--  Load the sweetalert system for smooth looking alerts-->
+  <script src="js/sweetalert2.all.min.js"></script>
+    <!--  Load our event-based javascript functions so we can scan patients, scan medications, and display barcodes (when appropriate)-->
+  <script>
+    // Custom function created by using JavasScript to scan the medication.
+  function scanMedication(e) {
+    // If the enter key is initiated (bar code scanners are configured to press enter after code is scanned), then do this..
+  if (e.keyCode == 13) {
+      // make a variable called correctBarcode with the medication barcode as the value
+    var correctBarcode = "NITROG";
+      // make a variable called tb (theBarcode) and the value will be whatever is inputted/scanned
+    var tb = document.getElementById("medValue").value;
+        // if the correctBarcode var is equal to the tb var, then make the input box glow green, set the status to scanned, make the status green, and lastly set the value to Nitroglycerin
+    if (correctBarcode == tb) {
+      $('#medValue').addClass('is-valid').removeClass('is-invalid');
+      $('#medInvalid').css({
+        'color': '#38d57a'
+      });
+      $('#medInvalid').html('Status: scanned');
+      $('#medValue').val('Nitroglycerin');
+        }
+            // if the barcode scanned/inputted isnt equal to the correctBarcode value, then display a sweet alert with the error code setting to try again with the right medication.
+        else {
+          swal({
+            title: 'Error!',
+            text: 'Wrong barcode value for Nitroglycerin. Please try again.',
+            type: 'error',
+            confirmButtonText: 'Okay'
+          });
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

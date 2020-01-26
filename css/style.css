@@ -1,0 +1,127 @@
+/** generic modifications**/
+html, body {
+  background-color: #f5f7fa;
+  height: 100%; }
+
+main {
+  min-height: calc(100vh - 70px); }
+
+a {
+  color: #8253eb; }
+
+a:hover {
+  color: #6d40d1; }
+
+td p {
+  word-wrap: break-word; }
+
+footer {
+  height: 50px; }
+
+select.custom-select {
+  background: none !important; }
+
+/** generic modifications**/
+/**custom medstation pane for content **/
+.medstation-pane {
+  background: #fff;
+  padding: 2.14286em 3.57143em;
+  border-radius: 5px; }
+
+/**custom medstation pane for content **/
+/**custom medstation background color **/
+.medstation-bg {
+  background-color: #8253eb;
+  border-color: #8253eb; }
+
+/**custom medstation background color **/
+/**custom medstation button **/
+button.medstation-bg {
+  color: #fff; }
+
+button.medstation-bg:hover, button.medstation-bg:active {
+  cursor: pointer;
+  box-shadow: inset 0 0 0 20rem #6d40d1;
+  border-color: #8253eb; }
+
+/**custom medstation button **/
+.medstation-content {
+  margin-top: 3rem; }
+
+/**End global components**/
+/** Login Page form **/
+.form-signin {
+  background: #fff;
+  padding: 2.14286em 3.57143em;
+  border-radius: .2em;
+  margin: 0 auto; }
+
+.form-signin .checkbox {
+  font-weight: 400; }
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px; }
+
+.form-signin .form-control:focus {
+  z-index: 2; }
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+/** Login Page form **/
+/**Navbar**/
+.navbar-bg {
+  background: linear-gradient(90deg, #6f30bf, #8253eb); }
+
+/**Navbar End**/
+/** Page Title**/
+.page-title {
+  height: 4.42857em;
+  line-height: 4.42857em;
+  padding: 0 2.14286em;
+  border-bottom: 1px solid #eef1f2;
+  position: relative;
+  background: white; }
+
+.page-title .page-title-heading {
+  display: inline-block;
+  letter-spacing: -0.08em;
+  font-family: "Montserrat", sans-serif; }
+
+/** End Page Title **/
+/**Custom chart stylization**/
+tr.medstation-bg {
+  color: #ffffff; }
+
+.page-item.active .page-link {
+  background: #8253eb;
+  border-color: #8253eb;
+  color: #fff !important; }
+
+.page-link {
+  color: #8253eb; }
+
+.page-link:hover {
+  color: #6d40d1; }
+
+.medstation-highlight {
+  background-color: yellow; }
+
+/** End Chart Stylization**/
+/**Footer**/
+/**End Footer**/
+.invalid-feedback {
+  display: block !important; }
+
+/*For scanning meds*/

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Define main language as english -->
+<html lang="en">
+<head>
+  <!--  Meta tags -->
+  <meta charset="UTF-8">
+  <meta author="Trent Schneweis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--  Load the bootstrap stylesheet and then on top of that load our custom stylesheet-->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!--  Favicon-->
+  <link rel="icon" href="favicon.ico">
+  <title>Medstation: Login</title>
+</head>
+<body>
+  <!--  Navbar-->
+  <nav class="navbar navbar-bg navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MedstationV2</a>
+  </nav>
+  <!--  End of navbar-->
+  <!--  Start of the main content of the document-->
+  <main role="main">
+    <!--  Start of the full-width container-->
+    <div class="container-fluid">
+      <!--  Start of the medstation-content custom div-->
+      <div class="medstation-content">
+        <!--  Start of a row and everything in that row make it centered-->
+        <div class="row justify-content-md-center">
+          <!--  Start of making a column 25% of the container width -->
+          <div class="col col-lg-4">
+            <!--  Start of the login form -->
+            <form method="POST" action="patientlist.html" class="medstation-pane">
+              <h1 class="h3 mb-5 text-center font-weight-normal">MedstationV2 Login</h1>
+              <div class="form-group">
+                <!-- Only show labels for screen readers -->
+                <label for="username" class="sr-only">Email address</label>
+                <input type="email" id="inputEmail" class="form-control" name="username" placeholder="Enter your email here" required="">
+              </div>
+              <div class="form-group">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Enter your password here" name="password" required="">
+              </div>
+              <button class="btn btn-lg medstation-bg btn-block" type="submit">Login</button>
+            </form>
+            <!--  End of the login form -->
+          </div>
+          <!--  End of making a column 25% of the container width -->
+        </div>
+        <!--  End of a row and everything in that row make it centered-->
+      </div>
+      <!--  End of the medstation-content custom panel-->
+    </div>
+    <!--  End of the full-width container-->
+  </main>
+  <!--  End of the main content of the document-->
+  <!-- Start of footer -->
+  <footer class="bg-white bd-footer text-dark text-center mt-3">
+    <div class="container-fluid p-2">
+      <span>Created by <a href="https://www.linkedin.com/in/trentschneweis" target="_blank" rel="noopener">Trent Schneweis</a>. © 2018 MedstationV2 All Rights Reserved</span>
+    </div>
+  </footer>
+  <!-- End of footer -->
+  <!--  Load the jquery (Medstation uses a lot of JQuery)-->
+  <script src="js/jquery.min.js"></script>
+  <!--  Load the popper.js (required for bootstrap)-->
+  <script src="js/popper.min.js"></script>
+  <!--  Load the bootstrap (required for bootstrap javascript functions such as navbar collapse)-->
+  <script src="js/bootstrap.min.js"></script>
+  <!--  Load the sweetalert system for smooth looking alerts-->
+  <script src="js/sweetalert2.all.min.js"></script>
+</body>
+</html>

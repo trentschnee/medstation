@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!-- Define main language as english -->
+<html lang="en">
+<head>
+  <!--  Meta tags -->
+  <meta charset="UTF-8">
+  <meta author="Trent Schneweis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--  Load the bootstrap stylesheet and then on top of that load our custom stylesheet-->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/datatables.min.css" />
+    <!--  Favicon-->
+    <link rel="icon" href="favicon.ico">
+  <title>Medstation: New Orders: Roberto Hernandez</title>
+</head>
+<body>
+  <!--  Navbar-->
+  <nav class="navbar navbar-bg navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MedstationV2</a>
+      <!-- Button element to where when the button is clicked it will trigger the collapse css class. The data-targer is the selector to apply the collapse to -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medstationMenu" aria-controls="medstationMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--  Main navbar menu-->
+      <div class="collapse navbar-collapse" id="medstationMenu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="patientlist.html">Patient Index<span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <!--  End of navbar-->
+      <!--  Start of displaying the page title-->
+
+        <!--  Start of a flexbox container and evenly space everything out between -->
+            <!--  Start of making a navbar element for the new records and switching back to the patient's records-->
+            <nav class="navbar navbar-expand-md bg-white navbar-light">
+              <h5 class="navbar-brand page-title-heading">New Orders: Roberto Hernandez</h5>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medstationChartMenu" aria-controls="medstationChartMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="medstationChartMenu">
+                  <ul class="navbar-nav ml-auto chartMenu">
+              <li class="nav-item">
+                <a class="nav-link" href="scannedpatient.html">Patient Record </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="neworders.html">New Orders </a>
+              </li>
+              </ul>
+            </div>
+            </nav>
+            <!--  End of making a navbar element for the new records and switching back to the patient's records-->
+
+        <!--  End of a flexbox container and evenly space everything out between -->
+
+      <!--  End of displaying the page title-->
+  <!--  Start of the main content of the document-->
+  <main role="main">
+    <!--  Start of the full-width container-->
+    <div class="container-fluid">
+      <!--  Start of the medstation-content custom div-->
+      <div class="medstation-content">
+        <!--  Start of a row in our container-->
+<div class="row">
+  <!--  Start of making a column 100% of the container width -->
+  <div class="col-md-12">
+    <!--  Start of using the nav tabs components from bootstrap-->
+    <ul class="nav nav-tabs">
+      <!--  For each chart, show a list item element which when clicked it will show the chart-->
+      <li class="nav-item">
+        <a class="nav-link active" id="mar-tab" data-toggle="tab" href="#mar" role="tab" aria-controls="mar" aria-selected="true">MAR</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="true">History</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="labs-tab" data-toggle="tab" href="#labs" role="tab" aria-controls="labs" aria-selected="false">Labs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="ecg-tab" data-toggle="tab" href="#ecg" role="tab" aria-controls="ecg" aria-selected="false">Radiology</a>
+      </li>
+    </ul>
+    <!--  End of using the nav tabs components from bootstrap-->
+    <!--  Uses the tab JavasScript plugin to create tabbable panes, also pulls the medstation-pane style in with it-->
+    <div class="tab-content medstation-pane">
+      <div class="tab-pane fade show active" id="mar" role="tabpanel" aria-labelledby="mar-tab">
+        <!--  Start of creating a new row and everything in that row make it centered-->
+        <div class="row mb-1 justify-content-md-center">
+          <!--  Start of create a column which is 50% in width-->
+          <div class="col-md-6">
+            <div class="input-group">
+                <!--  Start of creating a custom input button-->
+                <span class="input-group-btn">
+                      <a class="btn btn-success" href="javascript: void(0);">Status: scanned</a>
+                </span>
+                  <!-- If any key is pressed, run the scanPatient function and pass event data -->
+                <input id="patValue" type="text" class="form-control" onkeypress="return scanPatient(event)" placeholder="HERNANDEZ ROBERTO A" type="text"/>
+                <!--  End of creating a custom input button-->
+            </div>
+          </div>
+          <!--  End of create a column which is 50% in width-->
+        </div>
+        <!--  End of creating a new row and everything in that row make it centered-->
+            <!--  Start of creating a new row for our patient data-->
+        <div class="row">
+          <!--  Start of create a column which is 100% in width-->
+          <div class="col-md-12">
+              <!--  Start of create a responsive table-->
+          <div class="table-responsive">
+            <!--  Start of creating the patient chart table-->
+        <table class="text-left table table-bordered border-bottom-0 table-hover mb-0">
+          <thead>
+            <!-- Start of applying flex styling at the table row -->
+            <tr class="d-flex medstation-bg">
+              <th class="col-md-10">Patient Identifier</th>
+              <th class="col-md-2">Allergies</th>
+            </tr>
+              <!-- End of applying flex styling at the table row -->
+          </thead>
+          <tbody>
+              <!-- Start of applying flex styling at the table row -->
+            <tr class="d-flex">
+              <td class="col-md-10">
+                <div class="row">
+                  <div class="col-md-4">
+                    <b>Name</b>
+                    <p>Hernandez, Roberto, A</p>
+                  </div>
+                  <div class="col-md-3">
+                    <b>DOB</b>
+                    <p>1945-12-23</p>
+                  </div>
+                  <div class="col-md-5">
+                    <!--  Display the barcode-->
+                      <svg id="barcode" class="barcode img-fluid"></svg>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <b>Admission Number</b>
+                    <p>3438976751</p>
+                  </div>
+                  <div class="col-md-2">
+                    <b>Medical Record Number</b>
+                    <p>74006192</p>
+                  </div>
+                </div>
+              </td>
+              <td class="col-md-2">
+                <div class="row">
+                <div class="col-md-12">
+                  <p>Percocet (Acetaminophen / Oxycodone)</p>
+                </div>
+              </div>
+              </td>
+            </tr>
+              <!-- End of applying flex styling at the table row -->
+          </tbody>
+          <thead>
+              <!-- Start of applying flex styling at the table row -->
+            <tr class="d-flex medstation-bg">
+              <th class="col-md-3">Patient Name</th>
+              <th class="col-md-2">Date of Birth</th>
+              <th class="col-md-1">Weight</th>
+              <th class="col-md-2">Age/Sex</th>
+              <th class="col-md-2">Date of Admission</th>
+              <th class="col-md-2">Attending Physician</th>
+            </tr>
+              <!-- End of applying flex styling at the table row -->
+          </thead>
+          <tbody>
+              <!-- Start of applying flex styling at the table row -->
+            <tr class="d-flex">
+              <td class="col-md-3">
+                <p>Roberto A Hernandez</p>
+              </td>
+              <td class="col-md-2">
+                <p>1945-12-23</p>
+              </td>
+              <td class="col-md-1">
+                <p>105 kg</p>
+              </td>
+              <td class="col-md-2">
+                <p>72/Male</p>
+              </td>
+              <td class="col-md-2">
+                <p>2018-04-12</p>
+              </td>
+              <td class="col-md-2">
+                <p>Dr. Chester Hart</p>
+              </td>
+            </tr>
+              <!-- End of applying flex styling at the table row -->
+          </tbody>
+            <thead>
+                <!-- Start of applying flex styling at the table row -->
+              <tr class="d-flex medstation-bg">
+                <th class="col-md-2">Medication</th>
+                <th class="col-md-2">Route</th>
+                <th class="col-md-5">Ordering Dose</th>
+                <th class="col-md-1">0000
+                  <div class="clearfix"></div>0759</th>
+                <th class="col-md-1">0800
+                  <div class="clearfix"></div>1559</th>
+                <th class="col-md-1">1600
+                  <div class="clearfix"></div>2359</th>
+              </tr>
+                <!-- End of applying flex styling at the table row -->
+            </thead>
+            <tbody class="col-md-12">
+                    <!-- Start of applying flex styling at the table row -->
+                    <tr class="d-flex">
+                      <td class="col-md-2">
+                        <a href="clopidogrel.html">
+                          <p>Clopidogrel</p>
+                        </a>
+                      </td>
+                      <td class="col-md-2">
+                        <p>PO (ORAL)</p>
+                      </td>
+                      <td class="col-md-5">
+                        <p>300 mg po prior to heart catherization</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                      <td class="col-md-1">
+                        <p>1300</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                    </tr>
+                      <!-- End of applying flex styling at the table row -->
+                    <!-- Start of applying flex styling at the table row -->
+                    <tr class="d-flex">
+                      <td class="col-md-2">
+                        <a href="metoprolol.html">
+                          <p>Metoprolol</p>
+                        </a>
+                      </td>
+                      <td class="col-md-2">
+                        <p>IV (Intravenous)</p>
+                      </td>
+                      <td class="col-md-5">
+                        <p>push 5 mg over 2 minutes; repeat every 5 minutes for total of 15 mg; hold if BP &lt;90 mmHg or HR &lt;50 mmHg and call physician</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                    </tr>
+                      <!-- End of applying flex styling at the table row -->
+                    <!-- Start of applying flex styling at the table row -->
+                    <tr class="d-flex">
+                      <td class="col-md-2">
+                        <a href="nsflush.html">
+                          <p>NS Flush</p>
+                        </a>
+                      </td>
+                      <td class="col-md-2">
+                        <p>IV (Intravenous)</p>
+                      </td>
+                      <td class="col-md-5">
+                        <p>3 ml BID (two times per day) and prn for flush</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                      <td class="col-md-1">
+                        <p>1200</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p>2100 </p>
+                      </td>
+                    </tr>
+                      <!-- End of applying flex styling at the table row -->
+                    <!-- Start of applying flex styling at the table row -->
+                    <tr class="d-flex">
+                      <td class="col-md-2">
+                        <a href="heparinbolus.html">
+                          <p>Heparin Bolus</p>
+                        </a>
+                      </td>
+                      <td class="col-md-2">
+                        <p>IV (Intravenous)</p>
+                      </td>
+                      <td class="col-md-5">
+                        <p>push 60 units/kg bolus (maximum 4,000 units)
+</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                      <td class="col-md-1">
+                        <p>1300</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                    </tr>
+                      <!-- End of applying flex styling at the table row -->
+                    <!-- Start of applying flex styling at the table row -->
+                    <tr class="d-flex">
+                      <td class="col-md-2">
+                        <a href="heparininfusion.html">
+                          <p>Heparin Infusion</p>
+                        </a>
+                      </td>
+                      <td class="col-md-2">
+                        <p>IV (Intravenous)</p>
+                      </td>
+                      <td class="col-md-5">
+                        <p>start infusion at 10 units/kg/hr</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                      <td class="col-md-1">
+                        <p>1300</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                    </tr>
+                      <!-- End of applying flex styling at the table row -->
+                    <!-- Start of applying flex styling at the table row -->
+                    <tr class="d-flex">
+                      <td class="col-md-2">
+                        <a href="morphinesulfate.html">
+                          <p>Morphine Sulfate</p>
+                        </a>
+                      </td>
+                      <td class="col-md-2">
+                        <p>IV (Intravenous)
+</p>
+                      </td>
+                      <td class="col-md-5">
+                        <p>push 3 mg prn (as needed) every 2 hours to keep pain 0/10</p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                      <td class="col-md-1">
+                        <p></p>
+                      </td>
+                    </tr>
+                      <!-- End of applying flex styling at the table row -->
+                  <!-- Start of applying flex styling at the table row -->
+                  <tr class="d-flex medstation-highlight">
+                    <td class="col-md-2">
+                      <a href="nitroglycerin.html">
+                        <p>Nitroglycerin</p>
+                      </a>
+                    </td>
+                    <td class="col-md-2">
+                      <p>SL (Sublingual)</p>
+                    </td>
+                    <td class="col-md-5">
+                      <p>0.4 mg as needed for chest pain every 5 minutes times 3 doses - notify provider if unrelieved</p>
+                    </td>
+                    <td class="col-md-1">
+                      <p></p>
+                    </td>
+                    <td class="col-md-1">
+                      <p></p>
+                    </td>
+                    <td class="col-md-1">
+                      <p></p>
+                    </td>
+                  </tr>
+                    <!-- End of applying flex styling at the table row -->
+
+                  <!-- Start of applying flex styling at the table row -->
+                  <tr class="d-flex medstation-highlight">
+                    <td class="col-md-2">
+                      <a href="sodiumchloride.html">
+                        <p>Sodium Chloride 0.9%</p>
+                      </a>
+                    </td>
+                    <td class="col-md-2">
+                      <p>IV (Intravenous)
+</p>
+                    </td>
+                    <td class="col-md-5">
+                      <p>start influsion at 75 mL/hr</p>
+                    </td>
+                    <td class="col-md-1">
+                      <p></p>
+                    </td>
+                    <td class="col-md-1">
+                      <p>1200</p>
+                    </td>
+                    <td class="col-md-1">
+                      <p></p>
+                    </td>
+                  </tr>
+                    <!-- End of applying flex styling at the table row -->
+
+            </tbody>
+          </table>
+            <!--  End of creating the patient chart table-->
+          </div>
+          <!--  Start of create a responsive table-->
+          </div>
+            <!--  End of create a column which is 100% in width-->
+          </div>
+          <!--  End of creating a new row for our patient data-->
+      </div>
+      <!-- Start of make a tab pane for the history chart -->
+        <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+          <div class="embed-responsive embed-responsive-21by9">
+            <div class="embed-responsive-item" id="historyChart"></div>
+          </div>
+        </div>
+        <!-- End of make a tab pane for the history chart -->
+        <!-- Start of make a tab pane for the orders chart -->
+        <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+          <div class="embed-responsive embed-responsive-21by9">
+            <div class="embed-responsive-item" id="ordersChart"></div>
+          </div>
+        </div>
+        <!-- End of make a tab pane for the orders chart -->
+          <!-- Start of make a tab pane for the labs chart -->
+        <div class="tab-pane fade" id="labs" role="tabpanel" aria-labelledby="labs-tab">
+          <div class="embed-responsive embed-responsive-21by9">
+            <div class="embed-responsive-item" id="labsChart"></div>
+          </div>
+        </div>
+        <!-- End of make a tab pane for the labs chart -->
+        <!-- Start of make a tab pane for the ECG chart -->
+        <div class="tab-pane fade" id="ecg" role="tabpanel" aria-labelledby="ecg-tab">
+          <div class="embed-responsive embed-responsive-21by9">
+            <div class="embed-responsive-item" id="radiologyChart"></div>
+          </div>
+        </div>
+        <!-- End of make a tab pane for the ECG chart -->
+    </div>
+  </div>
+  <!--  End of making a column 100% of the container width -->
+</div>
+<!--  End of a row in our container-->
+
+      </div>
+      <!--  End of the medstation-content custom panel-->
+    </div>
+    <!--  End of the full-width container-->
+  </main>
+  <!--  End of the main content of the document-->
+    <!-- Start of footer -->
+  <footer class="bg-white bd-footer text-dark text-center mt-3">
+    <div class="container-fluid p-2">
+      <span>Created by <a href="https://www.linkedin.com/in/trentschneweis" target="_blank" rel="noopener">Trent Schneweis</a>. © 2018 MedstationV2 All Rights Reserved</span>
+    </div>
+  </footer>
+    <!-- End of footer -->
+  <!--  Load the jquery (Medstation uses a lot of JQuery)-->
+  <script src="js/jquery.min.js"></script>
+  <!--  Load the popper.js (required for bootstrap)-->
+  <script src="js/popper.min.js"></script>
+  <!--  Load the bootstrap (required for bootstrap javascript functions such as navbar collapse)-->
+  <script src="js/bootstrap.min.js"></script>
+  <!--  Load the JsBarcode library (what I am using for the barcode scanner)-->
+    <script src="js/JsBarcode.code39.min.js"></script>
+      <!--  Load the datatables library (required for the patient table search)-->
+    <script src="js/datatables.min.js"></script>
+    <!--  Load the pdfobject utility (renders pdf chart data on the tabs)-->
+    <script src="js/pdfobject.js"></script>
+    <!--  Load global custom scripts for the whole page-->
+    <script src="js/custom.js"></script>
+    <!--  Load the sweetalert system for smooth looking alerts-->
+  <script src="js/sweetalert2.all.min.js"></script>
+    <!--  Load our event-based javascript functions so we can scan patients, scan medications, and display barcodes (when appropriate)-->
+
+  <script>
+  // Using the JSBarcode library, display the barcode value for each patient.
+      JsBarcode("#barcode", "HERNANDEZ ROBERTO A", {
+        format: "code39",
+        displayValue: false
+      });
+  // Using the PDFObject utility, display the pdf files for each type of chart there is.
+      PDFObject.embed("uploads/110/history/1.pdf", "#historyChart");
+      PDFObject.embed("uploads/110/orders/1.pdf", "#ordersChart");
+      PDFObject.embed("uploads/110/labs/1.pdf", "#labsChart");
+      PDFObject.embed("uploads/110/ecg/1.pdf", "#radiologyChart");
+  </script>
+</body>
+</html>
