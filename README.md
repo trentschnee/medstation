@@ -1,6 +1,7 @@
 # medstation-redesign
 This is the redesign of the front-end for Butler Community College's Electronic Health Record system. The medstation-redesign project is also called MedstationV2
 
+Demo: https://trentschnee.github.io/medstation-redesign/
 ## Contents:
 
 - About Page
@@ -33,7 +34,11 @@ Logging In
 
 In order to login to MedstationV2, you need to login with an email and password. For
 demonstration purposes only, any email and password should work with the project I have
-submitted. However, in my full-stack web application, emails and passwords are verified within
+submitted. However, in my full-stack web application, emails and passwords are verified within.
+
+Note: In the github pages demo, you must refresh the page to see everything.
+
+
 the sql database I have setup.
 
 - Data Needed:
