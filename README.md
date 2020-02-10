@@ -1,7 +1,10 @@
 # medstation-redesign
 This is the redesign of the front-end for Butler Community College's Electronic Health Record system. The medstation-redesign project is also called MedstationV2
+## Demo
+Login Page: https://trentschnee.github.io/medstation-redesign/
+Actual Layout: https://trentschnee.github.io/medstation-redesign/unscannedpatient.html if you want to see the layout.
 
-Demo: https://trentschnee.github.io/medstation-redesign/
+
 ## Contents:
 
 - About Page
@@ -11,7 +14,7 @@ Demo: https://trentschnee.github.io/medstation-redesign/
 - Functionalities Page
 
 
-About
+## About
 
 MedstationV2 is a dynamic patient medical records system. This means patient pages are
 
@@ -26,11 +29,11 @@ Javascript functionalities. This of course simulates a clinical environment for 
 students.
 
 
-Instructions
+## Instructions
 
 Refer to this part of the documentation for operation instructions, regarding MedstationV 2
 
-Logging In
+### Logging In
 
 In order to login to MedstationV2, you need to login with an email and password. For
 demonstration purposes only, any email and password should work with the project I have
@@ -45,7 +48,7 @@ the sql database I have setup.
     o Any email
     o Any password
 
-Logging Out
+### Logging Out
 
 To log out, go to the top right hand corner of the screen and press “Logout”. For mobile users,
 please click the hamburger dropdown icon and then press “Logout”.
@@ -65,7 +68,7 @@ only 10,25,50,75, or 100. You can also search for your patient by entering in hi
 Once you have found your desired patient simply click the name to access the medication
 administration records.
 
-Scanning A Patient
+### Scanning A Patient
 
 The best way to scan a patient is to click in the input bar labeled “Scan patient” and scan the
 patient’s wrist band. However, you can also manually scan the patient manually by entering in
@@ -75,7 +78,7 @@ the patient’s last name middle initial and first name in uppercase. Then press
     o Barcode: “HERNANDEZ ROBERTO A”
 
 
-Scanning A Medication
+### Scanning A Medication
 
 Once the patient is scanned and you are able to click into a medication page, you will need to
 scan the appropriate medication barcode and press enter. Once you have done this, the status
@@ -99,12 +102,12 @@ should display as “scanned”
     o Barcode: “NITROG”
     o
 
-Viewing Chart Data
+### Viewing Chart Data
 
 To view the patient’s chart data, all you need to do is have the patient scanned and then click any
 of the following tabs: history, orders, labs, and radiology.
 
-Viewing New Orders
+### Viewing New Orders
 
 To view new orders, you must have the patient scanned first. Then you will be able to click the
 “New Orders” tab. From there you should see similar chart data from Roberto Hernandez.
@@ -112,7 +115,7 @@ However, you will be able to see the medication discontinued from the old chart 
 yellow.
 
 
-Screenshots
+## Screenshots
 
 Here is every page type/important front-end contents MedstationV2 has.
 
