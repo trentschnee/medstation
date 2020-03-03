@@ -1,8 +1,8 @@
 # medstation-redesign
 This is the redesign of the front-end for Butler Community College's Electronic Health Record system. The medstation-redesign project is also called MedstationV2
 ## Demo
-Login Page: https://trentschnee.github.io/medstation-redesign/
-Actual Layout: https://trentschnee.github.io/medstation-redesign/unscannedpatient.html if you want to see the layout.
+Login Page: https://trentschnee.github.io/medstation/
+Actual Layout: https://trentschnee.github.io/medstation/unscannedpatient.html if you want to see the layout.
 
 
 ## Contents:
